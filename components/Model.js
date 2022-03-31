@@ -99,7 +99,7 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
     let cardRef = useRef()
 
     return(
-        <div className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-80 flex items-center justify-center ">
+        <div key={id} className="fixed top-0 bottom-0 left-0 right-0 z-50 bg-black bg-opacity-80 flex items-center justify-center ">
             <div ref={cardRef} className="p-2 md:p-5 mx-3 bg-white rounded-lg">
                 <button className="text-right text-lg rounded-full p-2 w-8 h-8 text-white flex items-center justify-center bg-red-700" onClick={()=>closeModel(false)}>x</button>
 
@@ -129,6 +129,7 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
                             {size[0].items.map((s,i)=>(
                                <div className="flex items-center">
                                 <input 
+                                    key={i}
                                     type= 'radio'
                                     id={i}
                                     name={s.size}
@@ -149,6 +150,7 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
                                 <div className="flex items-center">
                                 {toppings[0].isRadio ?
                                 (<input 
+                                    key={i}
                                     type= 'radio'
                                     id={`selectTopping - ${i}`}
                                     name='selectTopping'
@@ -157,6 +159,7 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
                                     onChange={()=>selectTopping(i)}
                                 />):
                                 (<input 
+                                    key={i}
                                     type='checkbox'
                                     id={`selectTopping - ${i}`}
                                     name='selectTopping'
