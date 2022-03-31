@@ -10,7 +10,7 @@ import dynamic from "next/dynamic"
 
 const Header = dynamic(()=>import('../components/Header'),{ssr: false})
 
-export default function Home() {
+export default function Home({data}) {
   // console.log(data)
   return (
     <div>
@@ -29,10 +29,10 @@ export default function Home() {
   )
 }
 
-// export async function getServerSideProps(context) {
-//   const res = await fetch(`https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68`)
-//   const data = await res.json()
+export async function getServerSideProps(context) {
+  const res = await fetch(`https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68`)
+  const data = await res.json()
 
-//   // Pass data to the page via props
-//   return { props: { data } }
-// }
+  // Pass data to the page via props
+  return { props: { data } }
+}
