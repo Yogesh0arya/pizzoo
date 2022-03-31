@@ -1,6 +1,6 @@
 import CheckoutProducts from '../components/CheckoutProduct'
 
-import {useSelector} from 'react-redux'
+import {useSelector as SelectTheTarget} from 'react-redux'
 import {selectItems} from '../src/slices/basketSlice'
 import {selectTotal} from '../src/slices/basketSlice'
 import Currency from 'react-currency-formatter'
@@ -10,9 +10,9 @@ const Header = dynamic(()=>import('../components/Header'),{ssr: false})
 
 
 function checkout(){
-    const items = useSelector(selectItems)
+    const items = SelectTheTarget(selectItems)
     
-    const total = useSelector(selectTotal)
+    const total = SelectTheTarget(selectTotal)
 
     return(
         <div className="pt-14 md:pt-24 h-screen">
