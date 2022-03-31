@@ -127,9 +127,9 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
                             <p className="text-gray-400 text-left align-center">{size[0].title}</p>
                             <div className="col-span-2">
                             {size[0].items.map((s,i)=>(
-                               <div className="flex items-center">
+                               <div key={i} className="flex items-center">
                                 <input 
-                                    key={i}
+                                
                                     type= 'radio'
                                     id={i}
                                     name={s.size}
@@ -147,10 +147,10 @@ function Model({closeModel, id, name, description, isVeg, rating, price, img_url
                             <p className="text-gray-400 text-left">{toppings[0].title}</p>
                             <div className="col-span-2">
                             {toppings[0].items.map((s,i)=>(
-                                <div className="flex items-center">
+                                <div key={id} className="flex items-center">
                                 {toppings[0].isRadio ?
                                 (<input 
-                                    key={i}
+                                   
                                     type= 'radio'
                                     id={`selectTopping - ${i}`}
                                     name='selectTopping'
